@@ -1,1 +1,1 @@
-﻿
+﻿console.log("Hello all ! This is node js tutorial for beginner.")
