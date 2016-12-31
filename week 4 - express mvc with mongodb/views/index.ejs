@@ -1,59 +1,118 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <!--bower:css-->
+    <link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/lib/font-awesome/css/font-awesome.min.css' />
     <!--endbower-->
-    <!--bower:js-->
-    <script src="/public/lib/angular/angular.js"></script>
-    <script src="/public/lib/jquery/dist/jquery.js"></script>
-    <script src="/public/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <!--endbower-->
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!--bower:js-->
+  <script src="/lib/angular/angular.js"></script>
+  <script src="/lib/jquery/dist/jquery.js"></script>
+  <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+  <!--endbower-->
 
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <form class="form-signin" action="/users/register" method="post">
-      <h2 class="form-signin-heading text-center">Register</h2>
+  <%- include partialViews/menu.ejs %>
+    <!-- Page Content -->
+    <div class="container">
 
-      <label for="username" class="sr-only">Username</label>
-      <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+      <!-- Jumbotron Header -->
+      <header class="jumbotron hero-spacer">
+        <h1>A Warm Welcome to <%= title %>!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+        <p><a class="btn btn-primary btn-large">Call to action!</a>
+        </p>
+      </header>
 
-      <label for="fname" class="sr-only">First Name</label>
-      <input type="text" id="fname" name="fname" class="form-control" placeholder="Name" required autofocus>
+      <hr>
 
-      <label for="lname" class="sr-only">Last Name</label>
-      <input type="text" id="lname" name="lname" class="form-control" placeholder="Last Name" required autofocus>
+      <!-- Title -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Latest Features</h3>
+        </div>
+      </div>
+      <!-- /.row -->
 
-      <label for="email" class="sr-only">E-mail</label>
-      <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+      <!-- Page Features -->
+      <div class="row text-center">
 
-      <label for="password" class="sr-only">Password</label>
-      <input type="password" name="pwd" id="password" class="form-control" placeholder="Password" required>
+        <div class="col-md-3 col-sm-6 hero-feature">
+          <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+              <h3>Feature Label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>
+                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <label for="contact" class="sr-only">contact</label>
-      <input type="password" name="contact" id="contact" class="form-control" placeholder="Password" required>
+        <div class="col-md-3 col-sm-6 hero-feature">
+          <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+              <h3>Feature Label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>
+                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <label for="contact" class="sr-only">contact</label>
-      <input type="password" name="contact" id="contact" class="form-control" placeholder="Password" required>
+        <div class="col-md-3 col-sm-6 hero-feature">
+          <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+              <h3>Feature Label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>
+                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <label for="city" class="sr-only">city</label>
-      <input type="text" name="city" id="city" class="form-control" placeholder="Password" required>
+        <div class="col-md-3 col-sm-6 hero-feature">
+          <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+              <h3>Feature Label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p>
+                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <label for="state" class="sr-only">state</label>
-      <input type="text" name="state" id="state" class="form-control" placeholder="state" required>
+      </div>
+      <!-- /.row -->
 
-      <label for="country" class="sr-only">state</label>
-      <input type="text" name="country" id="country" class="form-control" placeholder="state" required>
+      <hr>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-    </form>
-    <form action="/user/auth" method="POST">
-      <input type="text" placeholder="name" name="username">
-      <input type="text" placeholder="quote" name="password">
-      <button type="submit">Submit</button>
-    </form>
+      <!-- Footer -->
+      <footer>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright &copy; Your Website 2014</p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.container -->
+
   </body>
 </html>

@@ -1,12 +1,6 @@
-/**
- * Created by madan.tamang on 12/31/2016.
- */
 var Book = require('../models/book');
 
-
-
 exports.getBookList= function(req, res) {
-    console.log('session',req.user);
     Book.find(function (err,data) {
         if(err)
             res.json('error');

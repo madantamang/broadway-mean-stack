@@ -19,6 +19,7 @@ var UserSchema=new mongoose.Schema({
 });
 
 UserSchema.pre('save', function(next) {
+    next();
 });
 UserSchema.methods.validPassword = function(password) {
 };
