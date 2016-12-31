@@ -1,5 +1,12 @@
 var User = require('../models/userModel');
 
+
+exports.loginUser=function (req,res){
+  User.find({'username':req.body.username,"password":req.body.password},function(err,data){
+     req.session.isAuth=true;
+      req.session.user=data;
+  })
+};
 exports.getUserList= function(req, res) {
     console.log('session',req.user);
     User.find(function (err,data) {
