@@ -1,3 +1,7 @@
 # broadway-mean-stack
 
-a simple application made with mean-stack during my mentoring phase of MEAN to student at Broadway Infosys Nepal.
+a simple web application built on expressjs with simple movie REST api.
+
+usuage
+**npm install**
+** npm start **
