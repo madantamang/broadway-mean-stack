@@ -1,3 +1,6 @@
-# broadway-mean-stack
+# broadway-mean-stack - nodejs basic
+Repository holding the source code of my node.js tutorial 
 
-a simple application made with mean-stack during my mentoring phase of MEAN to student at Broadway Infosys Nepal.
+Basic instructions
+- npm install
+- node index 

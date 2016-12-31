@@ -1,3 +1,8 @@
 # broadway-mean-stack
 
-a simple application made with mean-stack during my mentoring phase of MEAN to student at Broadway Infosys Nepal.
+a simple nodejs project built on top of expressjs framework.
+Uses express router for url routing.
+
+basic command
+* npm install
+* node index Or npm start

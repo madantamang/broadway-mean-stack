@@ -1,3 +1,6 @@
 # broadway-mean-stack
+simple node js server rendering index.html file.
 
-a simple application made with mean-stack during my mentoring phase of MEAN to student at Broadway Infosys Nepal.
+Instruction
+* node server 
+* browse http://127.0.0.1:8081/
