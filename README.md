@@ -1,3 +1,11 @@
 # broadway-mean-stack
 
-a simple application made with mean-stack during my mentoring phase of MEAN to student at Broadway Infosys Nepal.
+a simple application made with mean-stack during my mentoring phase of MEAN to student at Broadway Infosys.
+
+Courses Outline
+*Javascript
+*nodejs
+*Express JS
+*Mongo DB
+*tier application and REST API
+*AngularJS
