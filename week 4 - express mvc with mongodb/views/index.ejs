@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!--bower:js-->
+    <script src="/public/lib/jquery/dist/jquery.js"></script>
+    <script src="/public/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!--endbower-->
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <form class="form-signin" action="/register" method="post">
+      <h2 class="form-signin-heading text-center">Register</h2>
+
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+
+      <label for="name" class="sr-only">Name</label>
+      <input type="text" id="name" name="name" class="form-control" placeholder="Name" required autofocus>
+
+      <label for="email" class="sr-only">E-mail</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="E-mail" required>
+
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+    <form action="/user/auth" method="POST">
+      <input type="text" placeholder="name" name="name">
+      <input type="text" placeholder="quote" name="quote">
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
