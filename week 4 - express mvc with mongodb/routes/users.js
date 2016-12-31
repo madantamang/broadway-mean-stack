@@ -1,13 +1,24 @@
 var express = require('express');
 var router = express.Router();
 
-var categoryController = require('../controllers/userController');
+// Authentication and authorization middleware function
+var authMiddleware = function(req, res, next) {
+    if (req.session && req.session.user && req.session.isAuth)
+        return next();
+    else
+        return res.redirect("/login");
+};
+
+var userController = require('../controllers/userController');
 
 /* GET users listing. */
-router.get('/', categoryController.getUserList);
+router.get('/', userController.getUserList);
 
-router.post('/register',categoryController.saveUser );
+router.post('/register',userController.saveUser );
 
-router.post('/login',categoryController.loginUser);
+router.post('/login',userController.loginUser);
+
+router.get('/profile',authMiddleware,userController.findUser);
+
 
 module.exports = router;

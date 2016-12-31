@@ -5,14 +5,14 @@ var BookSchema=new mongoose.Schema({
     isbn:String,
     pageCount:String,
     publishedDate:{type:Date,Default:Date.now()},
-    thumbnailUrl:{type:String},
+    thumbnailUrl:{type:String,default:"http://placehold.it/800x500"},
     shortDescription: {type: String},
     longDescription:String,
-    status:Boolean,
+    status:{type:Boolean,default:"PUBLISH"},
     authors:[{type:String}],
     categories:[{type:String}]
 
 });
 
-module.exports=mongoose.model("bookCatalog",BookSchema);
+module.exports=mongoose.model("bookcatalog",BookSchema);
 

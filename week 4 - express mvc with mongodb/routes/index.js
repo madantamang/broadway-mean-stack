@@ -1,17 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
+var indexController = require('../controllers/indexController');
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', indexController.getHomePage);
 
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login' });
-});
+/* GET login page. */
+router.get('/login', indexController.getLoginPage);
 
-router.get('/signup', function(req, res, next) {
-  res.render('signup', { title: 'Sign Up' });
-});
+/* GET signup page. */
+router.get('/signup', indexController.getSignUpPage);
 
+router.get('/logout', indexController.logoutUser);
 module.exports = router;

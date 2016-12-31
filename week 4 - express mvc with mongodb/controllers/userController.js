@@ -2,9 +2,13 @@ var User = require('../models/userModel');
 
 
 exports.loginUser=function (req,res){
-  User.find({'username':req.body.username,"password":req.body.password},function(err,data){
-     req.session.isAuth=true;
+  User.findOne({'username':req.body.username,"password":req.body.password},function(err,data){
+      if(err){
+          res.redirect("/login");
+      }
+      req.session.isAuth=true;
       req.session.user=data;
+      res.redirect("/users/profile");
   })
 };
 exports.getUserList= function(req, res) {
@@ -17,12 +21,14 @@ exports.getUserList= function(req, res) {
     };
 
 exports.findUser=function(req, res) {
-    User.findById(req.params.id, function (err, data) {
-        if (!err) {
-            res.json(data);
+    console.log('session',req.session.user._id);
+    User.findById(req.session.user._id, function (err, data) {
+        if (err) {
+            console.log(err);
+            res.render("error",err);
         } else {
-             console.log(err);
-            res.json(err.error);
+             console.log(data);
+            res.render("profile",{title:"profile" + data.firstName,profiledata:req.session.user});
         }
     });
 };

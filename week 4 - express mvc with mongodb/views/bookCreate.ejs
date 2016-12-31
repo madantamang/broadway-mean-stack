@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title><%= title %></title>
+    <!--bower:css-->
+    <link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/lib/font-awesome/css/font-awesome.min.css' />
+    <!--endbower-->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!--bower:js-->
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!--endbower-->
+
+</head>
+<body>
+<%- include partialViews/menu.ejs %>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <form class="form-horizontal" action="/books/create" method="post">
+            <h2 class="form-signin-heading">Create Book</h2>
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" id="title" name="title" class="form-control" placeholder="title of book" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="isbn" class="col-sm-2 control-label">Isbn</label>
+                <div class="col-sm-10">
+                    <input type="text" id="isbn" name="isbn" class="form-control" placeholder="Isbn" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pageCount" class="col-sm-2 control-label">Page Count</label>
+                <div class="col-sm-10">
+                    <input type="text" id="pageCount" name="pageCount" class="form-control" placeholder="Page Count" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="publishedDate" class="col-sm-2 control-label">Published Date</label>
+                <div class="col-sm-10">
+                    <input type="text" id="publishedDate" name="publishedDate" class="form-control" placeholder="Published Date" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="shortDescription" class="col-sm-2 control-label">Short Description</label>
+                <div class="col-sm-10">
+                    <input type="text" id="shortDescription" name="shortDescription" class="form-control" placeholder="Short Description" required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="longDescription" class="col-sm-2 control-label">Long Description</label>
+                <div class="col-sm-10">
+                    <textarea id="longDescription" name="longDescription" class="form-control" placeholder="Long Description" required autofocus></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="authors" class="col-sm-2 control-label">Authors</label>
+                <div class="col-sm-10">
+                    <input type="text" id="authors" name="authors" class="form-control" placeholder="Name of all authors of book " required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="categories" class="col-sm-2 control-label">Categories</label>
+                <div class="col-sm-10">
+                    <input type="text" id="categories" name="categories" class="form-control" placeholder="categories " required autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

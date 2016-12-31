@@ -6,10 +6,8 @@ var bookController = require('../controllers/bookController');
 /* GET users listing. */
 router.get('/', bookController.getBookList);
 
-router.get('/create',function (req,res) {
-    res.render("bookCreate");
-} );
-router.get('/update',function (req,res) {
-    res.render("bookCreate");
-} );
+router.get('/create',bookController.getCreateBook)
+    .post('/create',bookController.saveNewBook);
+
+router.get('/update',bookController.getCreateBook);
 module.exports = router;

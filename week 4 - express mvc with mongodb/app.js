@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose=require("mongoose");
+var session = require('express-session')
+var passport = require('passport');
 
 //mongodb://localhost/database
 var url="mongodb://localhost:27017/broadwayDb";
@@ -50,10 +52,18 @@ app.use(bodyParser.urlencoded({ extended: true }));//The urlencoded method withi
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//this is configuration for session and passport
+//require('./passportConfig')(passport);
+ app.use(session({secret: 'bbbroooaadwaaay', saveUninitialized: true, resave: true}));
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+ //router define start here
 
 app.use('/', indexRoute);
 app.use('/users', usersRoute);
 app.use('/books', booksRoute);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

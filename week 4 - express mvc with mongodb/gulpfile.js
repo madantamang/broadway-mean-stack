@@ -7,7 +7,6 @@ gulp.task('inject',function () {
         ignorePath:'../public'
     };
     
-    return gulp.src(['./views/index.ejs','./views/login.ejs',
-        './views/signup.ejs','./views/books.ejs']).pipe(wiredep(options))
+    return gulp.src(['./views/*.ejs']).pipe(wiredep(options))
         .pipe(gulp.dest('./views'));
 });
