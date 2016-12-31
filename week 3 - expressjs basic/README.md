@@ -5,4 +5,4 @@ Uses express router for url routing.
 
 basic command
 * npm install
-* node index
+* node index Or npm start
