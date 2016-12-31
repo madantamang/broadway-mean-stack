@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="bin\www" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="bin/www" node-parameters="C:\Users\madan.tamang\AppData\Roaming\npm\node_modules\nodemon\bin\nodemon.js" working-dir="$PROJECT_DIR$">
-    <envs>
-      <env name="DEBUG" value="broadway-mongo-express:*" />
-    </envs>
-    <browser url="http://localhost:3000/" />
-    <method />
-  </configuration>
-</component>
