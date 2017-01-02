@@ -1,0 +1,19 @@
+<% include partials/head %>
+
+<body>
+<div class="col-sm-8 col-sm-offset-2">
+    <div class="text-center">
+        <h1 class=" fa fa-user"> Profile</h1><br>
+        <span><strong>user id</strong>: <%= user._id ? user._id : '' %></span><br>
+        <span class="fa fa-sign-out"><a href="/"> Sign out</a></span>
+        <hr>
+        <div class="jumbotron">
+            <% if (user.email != null) { %>
+            <img src="https://avatars.io/gravatar/<%= user.email %>/140" class="img-circle"><br>
+            <strong>email</strong>: <%= user.email %><br>
+            <% } %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
