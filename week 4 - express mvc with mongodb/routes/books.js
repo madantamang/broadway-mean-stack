@@ -9,5 +9,7 @@ router.get('/', bookController.getBookList);
 router.get('/create',bookController.getCreateBook)
     .post('/create',bookController.saveNewBook);
 
+router.get('/details/:id',bookController.getBookDetails);
+
 router.get('/update',bookController.getCreateBook);
 module.exports = router;

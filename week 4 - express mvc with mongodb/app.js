@@ -1,9 +1,10 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');//favicon serving middleware with caching
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override')
 var mongoose=require("mongoose");
 var session = require('express-session')
 var passport = require('passport');
@@ -50,6 +51,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));//The urlencoded method within body-parser tells body-parser to extract data from the <form> element and add them to the body property in the request object.
 app.use(cookieParser());
+app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //this is configuration for session and passport

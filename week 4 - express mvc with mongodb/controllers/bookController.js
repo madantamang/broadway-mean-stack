@@ -1,13 +1,15 @@
 var Book = require('../models/book');
 
 exports.getBookList= function(req, res) {
-    Book.find({})
+    Book.find()
         .sort({'publishedDate': -1})
         .limit(16)
         .exec(function (err,data) {
         if(err)
             res.render('error');
-        res.render("books",{books:data,title: 'Login'});
+            else {
+            res.render("books", {books: data, title: 'Login'});
+        }
     });
 };
 
@@ -38,13 +40,14 @@ exports.saveNewBook=function  (req,res) {
 
 };
 
-exports.findBook=function(req, res) {
+exports.getBookDetails=function(req, res) {
     Book.findById(req.params.id, function (err, data) {
         if (!err) {
-            res.json(data);
+            res.render('bookdetails', { title: "book details",book: data})
         } else {
             console.log(err);
-            res.json(err.error);
+            res.status(500);
+            res.render('error', { error: err })
         }
     });
 };

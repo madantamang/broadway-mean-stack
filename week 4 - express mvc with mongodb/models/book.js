@@ -10,7 +10,8 @@ var BookSchema=new mongoose.Schema({
     longDescription:String,
     status:{type:Boolean,default:"PUBLISH"},
     authors:[{type:String}],
-    categories:[{type:String}]
+    categories:[{type:String}],
+    price:{type:Number,default:99}
 
 });
 
