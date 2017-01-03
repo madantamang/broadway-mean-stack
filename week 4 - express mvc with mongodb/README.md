@@ -8,7 +8,8 @@ This code follow MVC pattern .
 
 * npm install
 * You will need a Mongo instance running. In a new terminal window run mongod
-* npm install -g gulp
+* npm install -g gulp bower
+* bower install
 * gulp inject
 * npm start
 * browse to http://localhost:3000
