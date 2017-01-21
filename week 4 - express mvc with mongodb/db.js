@@ -6,7 +6,7 @@ module.exports = function() {
     var url="mongodb://localhost:27017/broadwayDb";
 //mongodb://username:password@hostname:port/database
     var db = mongoose.connect(config.dev.db);
-   
+
     var connection=mongoose.connection;
 
     connection.on('connected', function(){

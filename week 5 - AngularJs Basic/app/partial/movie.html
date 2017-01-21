@@ -1,0 +1,19 @@
+<div class="jumbotron">This is movie page
+    {{name2}}
+    <div ng-repeat="movie in movies">
+        <div>{{movie}}</div>
+    </div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Rating</th>
+        </tr>
+
+        <tr ng-repeat="mov in hitMovies">
+            <td>{{ mov.name }}</td>
+            <td>{{ mov.averageRating }} <span ng-show="mov.averageRating > 4.5" class="badge">Hits</span></td>
+        </tr>
+    </table>
+
+</div>
+
