@@ -4,8 +4,9 @@
     Add two number<input type="text" placeholder="Your First Name" ng-model="firstName">
     <input type="text" placeholder="Your Last Name" ng-model="lastName">
 </div>
+{{message}}
 </br></br>Hello,
-    {{ firstName + lastName}}
+    {{ firstName }} {{ lastName}}
 
 <ul>
     <li ng-repeat="user in userList">{{user.name}}</li>

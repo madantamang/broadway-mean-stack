@@ -3,13 +3,14 @@
     <div ng-repeat="movie in movies">
         <div>{{movie}}</div>
     </div>
+    <input type="text" ng-model="movieSearch">
     <table>
         <tr>
             <th>Title</th>
             <th>Rating</th>
         </tr>
 
-        <tr ng-repeat="mov in hitMovies">
+        <tr ng-repeat="mov in hitMovies | filter:movieSearch">
             <td>{{ mov.name }}</td>
             <td>{{ mov.averageRating }} <span ng-show="mov.averageRating > 4.5" class="badge">Hits</span></td>
         </tr>
