@@ -47,22 +47,25 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+  next();
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));//The urlencoded method within body-parser tells body-parser to extract data from the <form> element and add them to the body property in the request object.
 app.use(cookieParser());
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//this is configuration for session and passport
-//require('./passportConfig')(passport);
- app.use(session({secret: 'bbbroooaadwaaay', saveUninitialized: true, resave: true}));
-// app.use(passport.initialize());
-// app.use(passport.session());
-
+//this is configuration for  passport
+require('./passportConfig')(passport);
+ app.use(passport.initialize());
  //router define start here
 
 app.use('/', indexRoute);
-app.use('/api/users', usersRoute);
+app.use('/api/users', usersRoute(passport));
 app.use('/api/books', booksRoute);
 
 // catch 404 and forward to error handler

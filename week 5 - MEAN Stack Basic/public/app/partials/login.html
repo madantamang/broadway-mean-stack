@@ -1,16 +1,16 @@
 <div class="row">
-    <form class="form-horizontal" action="/users/login" method="POST">
+    <form name="loginForm" ng-submit="userlogin()" class="form-horizontal">
         <h2 class="form-signin-heading">Please sign in</h2>
         <div class="form-group">
             <label for="username" class="col-sm-2 control-label">User Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  placeholder="UserName" id="username" name="username">
+                <input type="text" ng-model="username" class="form-control"  placeholder="UserName" id="username" name="username">
             </div>
         </div>
         <div class="form-group">
             <label for="password" class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control"  placeholder="password" id="password" name="password">
+                <input type="password" ng-model="password" class="form-control"  placeholder="password" id="password" name="password">
             </div>
         </div>
         <div class="form-group">

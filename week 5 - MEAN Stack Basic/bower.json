@@ -18,7 +18,8 @@
     "angular": "angularjs#^1.6.1",
     "bootstrap": "^3.3.7",
     "font-awesome": "fontawesome#^4.7.0",
-    "angular-route": "^1.6.1"
+    "angular-route": "^1.6.1",
+    "ngstorage": "^0.3.11"
   },
   "overrides": {
     "bootstrap": {

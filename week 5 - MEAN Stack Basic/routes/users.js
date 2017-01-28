@@ -1,24 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-// Authentication and authorization middleware function
-var authMiddleware = function(req, res, next) {
-    if (req.session && req.session.user && req.session.isAuth)
-        return next();
-    else
-        return res.redirect("/login");
-};
-
 var userController = require('../controllers/userController');
 
-/* GET users listing. */
-router.get('/', userController.getUserList);
+module.exports=function (passport) {
 
-router.post('/register',userController.saveUser );
+    /* GET users listing. */
+    router.get('/', userController.getUserList);
 
-router.post('/login',userController.loginUser);
+    router.post('/register',userController.saveUser );
 
-router.get('/profile',authMiddleware,userController.findUser);
+    router.post('/login',userController.loginUser);
 
+    router.get('/profile',passport.authenticate('jwt', { session: false }),userController.findUser);
 
-module.exports = router;
+    return router;
+
+};

@@ -5,9 +5,9 @@ var port = 3000;
 
 module.exports = {
     dev: {
-    port: port,
-    db: 'mongodb://localhost:27017/broadwayDb'
-},
+        port: port,
+        db: 'mongodb://localhost:27017/broadwayDb'
+    },
     prod:{
         port: port,
         db: 'mongodb://localhost:27017/broadwayDb'

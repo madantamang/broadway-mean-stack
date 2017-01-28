@@ -1,14 +1,17 @@
 var User = require('../models/userModel');
+var jwt = require('jsonwebtoken');
 
 
 exports.loginUser=function (req,res){
-  User.findOne({'username':req.body.username,"password":req.body.password},function(err,data){
+  User.findOne({'username':req.body.username,"password":req.body.password},function(err,user){
       if(err){
-          res.redirect("/login");
+          res.send({ success: false, message: 'Authentication failed. User not found.' });
       }
-      req.session.isAuth=true;
-      req.session.user=data;
-      res.redirect("/users/profile");
+      // Create token if the password matched and no error was thrown
+      var token = jwt.sign(user, "putsomethingtopsecrethere", {
+          expiresIn: 10080 // in seconds
+      });
+      res.json({ success: true, token: 'JWT ' + token });
   })
 };
 exports.getUserList= function(req, res) {
@@ -21,14 +24,14 @@ exports.getUserList= function(req, res) {
     };
 
 exports.findUser=function(req, res) {
-    console.log('session',req.session.user._id);
-    User.findById(req.session.user._id, function (err, data) {
+    console.log(req.user);
+    User.findById(req.user._id, function (err, data) {
         if (err) {
             console.log(err);
-            res.render("error",err);
+            res.json(err);
         } else {
              console.log(data);
-            res.json("profile",{title:"profile" + data.firstName,profiledata:req.session.user});
+            res.json({title:"profile" + data.firstName,profiledata:req.user});
         }
     });
 };
@@ -52,11 +55,11 @@ exports.saveUser=function(req, res, next) {
         function (err,response) {
             if(err){
                 console.log(err.errmsg);
-                res.json(err.errmsg);
+                return res.json({ success: false, message: 'That email address already exists.'});
             }
             else{
                 console.log(response);
-                res.json(response);
+                res.json({ success: true, message: 'Successfully created new user.' });
             }
 
         });
