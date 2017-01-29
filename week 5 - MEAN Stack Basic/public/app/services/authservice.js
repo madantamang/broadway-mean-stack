@@ -1,7 +1,7 @@
 /**
  * Created by madan.tamang on 1/28/2017.
  */
-app.factory('AuthMain', ['$http', '$localStorage', function($http, $localStorage){
+app.factory('AuthMain', ['$http', '$localStorage','$q', function($http, $localStorage,$q){
     var baseUrl = "http://localhost:3000/api/users";
     function changeUser(user) {
         angular.extend(currentUser, user);
@@ -35,16 +35,23 @@ app.factory('AuthMain', ['$http', '$localStorage', function($http, $localStorage
     }
 
     var currentUser = getUserFromToken();
+    function handleSuccess(res) {
+        return res.data;
+    }
+
+    function handleError(res) {
+        return $q.reject(res.data);
+    }
 
     return {
-        save: function(data, success, error) {
-            $http.post(baseUrl + '/signin', data).success(success).error(error)
+        save: function(data) {
+           return $http.post(baseUrl + '/signin', data).then(handleSuccess,handleError)
         },
-        signin: function(data, success, error) {
-            $http.post(baseUrl + '/login', data).success(success).error(error)
+        signin: function(data) {
+           return $http.post(baseUrl + '/login', data).then(handleSuccess,handleError)
         },
-        me: function(success, error) {
-            $http.get(baseUrl + '/profile/').success(success).error(error)
+        me: function() {
+            return $http.get(baseUrl + '/profile/').then(handleSuccess,handleError)
         },
         logout: function(success) {
             changeUser({});
@@ -52,5 +59,6 @@ app.factory('AuthMain', ['$http', '$localStorage', function($http, $localStorage
             success();
         }
     };
+
 }
 ]);

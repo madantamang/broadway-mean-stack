@@ -3,6 +3,7 @@ var jwt = require('jsonwebtoken');
 
 
 exports.loginUser=function (req,res){
+    console.log(req.body);
   User.findOne({'username':req.body.username,"password":req.body.password},function(err,user){
       if(err){
           res.send({ success: false, message: 'Authentication failed. User not found.' });

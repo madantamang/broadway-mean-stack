@@ -4,13 +4,14 @@
 app.controller('authController',['$rootScope', '$scope', '$location', '$localStorage', 'AuthMain', function($rootScope, $scope, $location, $localStorage, AuthMain) {
     $scope.userlogin = function() {
         var formData = {
-            email: $scope.username,
+            username: $scope.username,
             password: $scope.password
         };
 
-        AuthMain.signin(formData, function(res) {
+        AuthMain.signin(formData).then(function(res) {
+            console.log(res);
             $localStorage.token = res.token;
-            $location.path('/me');
+            $location.path('/profile');
         }, function() {
             $rootScope.error = 'Failed to signin';
         })
@@ -21,9 +22,9 @@ app.controller('authController',['$rootScope', '$scope', '$location', '$localSto
             password: $scope.password
         };
 
-        AuthMain.save(formData, function(res) {
+        AuthMain.save(formData).then(function(res) {
             $localStorage.token = res.data.token;
-            $location.path('/me');
+            $location.path('/profile');
         }, function() {
             $rootScope.error = 'Failed to signup';
         })

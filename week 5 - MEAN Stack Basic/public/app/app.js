@@ -11,7 +11,7 @@ app.config(['$routeProvider','$locationProvider','$httpProvider', function($rout
     });
     $routeProvider.when('/profile', {
         templateUrl: '/app/partials/profile.html',
-        controller: 'userController'
+        controller: 'profileController'
     });
     $routeProvider.when('/login', {
         templateUrl: '/app/partials/login.html',
@@ -41,11 +41,12 @@ app.config(['$routeProvider','$locationProvider','$httpProvider', function($rout
             'request': function (config) {
                 config.headers = config.headers || {};
                 if ($localStorage.token) {
-                    config.headers.Authorization = 'JWT' + $localStorage.token;
+                    config.headers.Authorization =  $localStorage.token;
                 }
                 return config;
             },
             'responseError': function(response) {
+               // var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
                 if(response.status === 401 || response.status === 403) {
                     $location.path('/login');
                 }
@@ -54,3 +55,19 @@ app.config(['$routeProvider','$locationProvider','$httpProvider', function($rout
         };
     }]);
 }]);
+// .run(['$rootScope', '$location', '$cookies', '$http',function ($rootScope, $location, $cookies, $http) {
+//     // keep user logged in after page refresh
+//     $rootScope.globals = $cookies.getObject('globals') || {};
+//     if ($rootScope.globals.currentUser) {
+//         $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
+//     }
+//
+//     $rootScope.$on('$locationChangeStart', function (event, next, current) {
+//         // redirect to login page if not logged in and trying to access a restricted page
+//         var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+//         var loggedIn = $rootScope.globals.currentUser;
+//         if (restrictedPage && !loggedIn) {
+//             $location.path('/login');
+//         }
+//     });
+// }]);
