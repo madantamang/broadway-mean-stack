@@ -19,7 +19,8 @@
                     <h5>{{ item.pageCount }} pages</h5>
                     <p>{{ item.shortDescription}}</p>
                     <p>
-                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#!/books/details/{{item._id}}" class="btn btn-default">More Info</a>
+                        <a href="#" ng-click="buyBook(item._id)" class="btn btn-primary">Buy Now!</a>
+                        <a href="#!/books/details/{{item._id}}" class="btn btn-default">More Info</a>
                     </p>
                 </div>
             </div>

@@ -14,9 +14,12 @@ app.controller('bookCreateController',['$scope','$http',function ($scope,$http) 
 }]);
 app.controller('bookDetailsController',['$scope','$routeParams','$http',
     function ($scope,$routeParams,$http) {
-    var url="http://localhost:3000/api/books/details/" + $routeParams.id;
+    var url="http://localhost:3000/api/books/details/" + $routeParams.bookid;
     $http.get(url).then(function (response) {
         console.log(response);
         $scope.book=response.data.book;
     });
+        $scope.buyBook= function (id) {
+
+        };
 }]);

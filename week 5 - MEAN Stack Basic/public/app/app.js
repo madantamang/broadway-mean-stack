@@ -1,7 +1,7 @@
 /**
  * Created by madan.tamang on 1/22/2017.
  */
-var app=angular.module('myApp', ['ngRoute','ngStorage']);
+var app=angular.module('myApp', ['ngRoute','ngStorage','toaster']);
 app.config(['$routeProvider','$locationProvider','$httpProvider', function($routeProvider,$locationProvider,$httpProvider){
     $locationProvider.hashPrefix('!');
 
@@ -25,7 +25,7 @@ app.config(['$routeProvider','$locationProvider','$httpProvider', function($rout
         templateUrl: '/app/partials/books.html',
         controller: 'bookController'
     });
-    $routeProvider.when('/books/details/:id', {
+    $routeProvider.when('/books/details/:bookid', {
         templateUrl: '/app/partials/bookDetails.html',
         controller: 'bookDetailsController'
     });

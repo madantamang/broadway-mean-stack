@@ -18,6 +18,10 @@
     <script src="/app/lib/jquery/dist/jquery.js"></script>
     <script src="/app/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/app/lib/ngstorage/ngStorage.min.js"></script>
+    <script src="/app/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="/app/lib/AngularJS-Toaster/toaster.min.css"></script>
+    <script src="/app/lib/AngularJS-Toaster/toaster.min.js"></script>
+
 
     <!--endbower-->
     <script src="/app/app.js"></script>
@@ -26,13 +30,14 @@
     <script src="/app/ng-controllers/authController.js"></script>
     <script src="/app/ng-controllers/profileController.js"></script>
     <script src="/app/ng-controllers/profileController.js"></script>
+    <script src="/app/ng-controllers/headerController.js"></script>
     <script src="/app/services/authservice.js"></script>
 
 
 </head>
 <body ng-app="myApp">
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav ng-controller="headerController" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -50,13 +55,16 @@
                 <li>
                     <a href="#!/books">Books </a>
                 </li>
-                <li>
+                <li ng-show="!loginName">
                     <a href="#!/login">Login </a>
                 </li>
-                <li>
+                <li  ng-show="!loginName">
                     <a href="#!/signup">Signup</a>
                 </li>
-                <!--<li><a href="#!/users/profile">Hello, username</a></li>-->
+                <li  ng-show="loginName">
+                    <a href="#!/logout">logout</a>
+                </li>
+                <li ng-show="loginName"><a href="#!/profile">Hello, {{loginName}}</a></li>
                 <!--<li> <a href="#!/logout">Logout </a></li>-->
 
             </ul>
@@ -85,6 +93,7 @@
 
 </div>
 <!-- /.container -->
+<toaster-container></toaster-container>
 
 </body>
 </html>
