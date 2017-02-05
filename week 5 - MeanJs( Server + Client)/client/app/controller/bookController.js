@@ -17,7 +17,6 @@ app.controller('bookDetailsController',['$scope','$http','$routeParams',function
 }]);
 app.controller('bookCreateController',['$scope','$http',function ($scope,$http) {
    $scope.saveBooks=function(){
-       alert('submit form');
        var url="http://localhost:3000/api/books/create/";
        $http.post(url,$scope.book).then(function (response) {
            console.log(response);
