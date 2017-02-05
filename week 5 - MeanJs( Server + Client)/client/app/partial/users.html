@@ -1,0 +1,16 @@
+<div class="starter-template">
+    <ul>
+    <li ng-repeat="user in userList">
+        <span>Name:{{user.name}}</span>---
+        <span>Email:{{user.email}}</span>
+    </li>
+	<li ng-repeat="book in bookList">
+        <span>Name:{{book.title}}</span>---
+        <span>Book Image: <img ng-src="{{book.thumbnailUrl}}"></span>
+    </li>
+    </ul>
+</div>
+<!--
+ <div ng-controller="controllerB">
+
+ </div>-->

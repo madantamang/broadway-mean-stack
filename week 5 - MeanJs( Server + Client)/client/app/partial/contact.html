@@ -1,0 +1,14 @@
+<div class="jumbotron">
+    <h1>Contact us page!</h1>
+    {{name}}
+    </br>
+    <span>
+        Displaying data from controller
+</span>
+    <div class="row"><label>Search User</label>
+    <input type="text" ng-model="searchUser">
+    <ul >
+        <li ng-repeat="friend in friendList | filter:searchUser |orderBy:'name'">{{friend.name | uppercase}} from {{friend.address}}</li>
+    </ul>
+    </div>
+</div>

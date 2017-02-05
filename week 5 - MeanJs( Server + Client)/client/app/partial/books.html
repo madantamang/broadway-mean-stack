@@ -1,0 +1,30 @@
+<div class="row">
+    <hr>
+
+    <!-- Title -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Latest Books<span class="pull-right"><a href="#/books/create">Create New</a></span></h3>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Page Features -->
+    <div class="row text-center">
+        <div ng-repeat="item in bookList" class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="http://placehold.it/800x500" alt="">
+                <div class="caption">
+                    <h3>{{item.title}}</h3>
+                    <h5>{{ item.pageCount }} pages</h5>
+                    <p>{{ item.shortDescription}}</p>
+                    <p>
+                        <a href="#" ng-click="buyBook(item._id)" class="btn btn-primary">Buy Now!</a>
+                        <a href="#/books/details/{{item._id}}" class="btn btn-default">More Info</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
